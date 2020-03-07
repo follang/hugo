@@ -1,0 +1,142 @@
+logo = true
+logoText = "FOL"
+logoType = "short" # long, short
+description = "Follang"
+themeOptions = ["dark", "light"]
+useFaviconGenerator = true # https://www.favicon-generator.org/
+enableTocSwitch = true
+enableLandingBackground = false
+enableSearch = true
+enableSearchHighlight = true
+enableLangChange = true
+enableDarkMode = true
+enableBreadcrumb = true
+enableBlogBreadcrumb = true
+enableEditBtn = false
+enableToc = true
+enableMenu = true
+enableNavbar = true
+enableFooter = true
+showPoweredBy = false
+
+tocLevels = ["h1", "h2", "h3", "h4"]
+paginateWindow = 1
+taxoPaginate = 13
+taxoGroupByDate = "2006" # "2006-01": group by month, "2006": group by year
+
+github = "https://github.com/follang/fol"
+
+# comment
+enableComment = true
+disqus_shortname = ""
+commento = false
+
+
+# FOL DEFAULT Site Params
+########################
+# Default docs parameters
+
+# GitHub branch (latest release)
+latest_github_branch = "release-0.12"
+# Default version (latest release)
+version = "v0.12"
+########################
+
+# Section labels for versions
+# Current release
+doclabel = "Documentation "
+releaselabel = "Release: "
+# Pre-release
+masterlabel = "Pre-release"
+# section path value ("master" docs directory folder on website)
+masterfolder = "development"
+
+# Footer content
+folAuthors = "FOL"
+folLicense = "FOL Licensing"
+fol_license = "https://github.com/follang/fol/blob/master/LICENSE.mb"
+
+# GitHub repositories
+github_docsrepo = "https://github.com/follang/docs"
+github_communityrepo = "https://github.com/follang/community"
+github_eventingrepo = "https://github.com/follang/eventing"
+github_servingrepo = "https://github.com/follang/serving"
+
+[links]
+# End user relevant links. These will show up on left side of footer and in the community page if you have one.
+[[links.user]]
+  name = "FOL users Group"
+  url = "https://groups.google.com/forum/#!forum/fol"
+  external = "true"
+  icon = "fa fa-users"
+        desc = "Discussion and help from your fellow users"
+[[links.user]]
+  name ="Twitter"
+  url = "https://twitter.com/follang"
+  external = "true"
+  icon = "fab fa-twitter"
+        desc = "Follow us on Twitter to get the latest news!"
+[[links.user]]
+  name = "Stack Overflow questions"
+  url = "https://stackoverflow.com/questions/tagged/*fol*"
+  external = "true"
+  icon = "fab fa-stack-overflow"
+        desc = "FOL tagged questions and curated answers"
+
+# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
+[[links.developer]]
+  name = "FOL GitHub repo"
+  url = "https://github.com/follang"
+  external = "true"
+  icon = "fab fa-github"
+        desc = "Development takes place here!"
+[[links.developer]]
+  name = "FOL Slack channels"
+  url = "https://fol.slack.com/"
+  external = "true"
+  icon = "fab fa-slack"
+        desc = "Chat with other project developers"
+[[links.developer]]
+  name = "FOL developers Group"
+  url = "https://groups.google.com/forum/#!forum/fol"
+  external = "true"
+  icon = "fa fa-users"
+        desc = "Discuss development issues around the project"
+
+# Community page links.
+[[links.usecode]]
+  name = "Community code samples"
+  url = "./samples/"
+  external = "false"
+  icon = "fa fa-code"
+        desc = "Community owned and maintained code samples"
+[[links.usecode]]
+  name = "Eventing"
+  url = "../docs/eventing/samples/"
+  external = "false"
+  icon = "fa fa-code"
+        desc = "Code samples for the Eventing component"
+[[links.usecode]]
+  name = "Serving"
+  url = "../docs/serving/samples/"
+  external = "false"
+  icon = "fa fa-code"
+        desc = "Code samples for the Serving component"
+[[links.usecode]]
+  name = "All"
+  url = "../docs/samples/"
+  external = "false"
+  icon = "fa fa-list"
+  desc = "See a list of all code samples"
+[[links.sharecode]]
+  name = "Contribute code samples"
+  url = "./samples/"
+  external = "false"
+  icon = "fa fa-share"
+        desc = "Share your samples with the community"
+[[links.sharecode]]
+  name = "Link existing code samples"
+  url = "../docs/samples/#external-code-samples"
+  external = "false"
+  icon = "fa fa-link"
+        desc = "Link to your FOL samples that live on another site"

@@ -1,0 +1,12 @@
+ac = "#b380ff"
+ac_dark = "#483d8b"
+ac_light = "#c3b1f7"
+dark = "#000000"
+light = "#ffffff"
+
+dark_main = "#181a1b"
+dark_nav = "#101010"
+dark_side = "#1c1e23"
+light_nav = "#dcdcdc"
+light_side = "#e6e6e6"
+light_main = "#f0f0f0"

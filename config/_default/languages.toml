@@ -1,0 +1,11 @@
+[en]
+  title = "FOL"
+  languageName = "English"
+  weight = 1
+  contentdir = "content/en"
+
+[de]
+  title = "FOL"
+  languageName = "German"
+  weight = 2
+  contentdir = "content/de"

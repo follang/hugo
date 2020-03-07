@@ -1,0 +1,9 @@
+[submodule "themes/zdoc"]
+	path = themes/zdoc
+	url = https://github.com/google/docsy/
+[submodule "content/en"]
+	path = content/en
+	url = https://github.com/follang/docs
+[submodule "public"]
+	path = public
+	url = https://github.com/follang/website

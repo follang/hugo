@@ -1,0 +1,10 @@
+$lightcode: (
+  content-code-color: $light-fg,
+  content-pre-color: darken($light-bg, 5%),
+  content-pre-number-color: #666,
+  content-pre-background-color: $light-nav,
+  content-pre-header-background-color: darken($light-bg, 60%),
+  content-pre-border-background-color: $ac,
+  content-pre-header-color: darken($light-bg, 5%),
+  content-blockquote-color: $ac,
+);

@@ -1,0 +1,10 @@
+$darkcode: (
+  content-code-color: $dark-fg,
+  content-pre-color: lighten($dark-bg, 5%),
+  content-pre-number-color: #666,
+  content-pre-background-color: $dark-nav,
+  content-pre-header-background-color: lighten($dark-bg, 60%),
+  content-pre-border-background-color: $ac,
+  content-pre-header-color: lighten($dark-bg, 5%),
+  content-blockquote-color: $ac,
+);
