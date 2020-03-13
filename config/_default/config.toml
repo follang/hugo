@@ -1,4 +1,4 @@
-baseURL = "http://follang.org"
+baseURL = "https://follang.org/"
 title = "FOL"
 theme = "zdoc"
 

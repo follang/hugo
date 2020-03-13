@@ -1,0 +1,111 @@
+#Spinner {
+  transform-origin: 50% 50%;
+}
+
+.compass-container,
+.message {
+  padding-top: 5%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  h1{
+    padding-bottom: 5%;
+  }
+}
+
+.compass-container {
+  padding-top: 10%;
+  max-width: 600px;
+}
+
+.button {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  @include themify($themes) {
+    border-radius: 4px;
+    background-color: themed('navbar-background-color');
+    border: 1px solid themed('dropdown-background-color');
+  }
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn-effect {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+
+.btn-effect span {
+  display: block;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.btn-effect span:first-child {
+  -webkit-transform: translate(0);
+  transform: translate(0);
+}
+
+.btn-effect span:last-child {
+  -webkit-transform: translateY(200%) translateX(-50%);
+  transform: translateY(200%) translateX(-50%);
+  position: absolute;
+  left: 50%;
+}
+
+.btn-effect:hover span:first-child {
+  -webkit-transform: translateY(-200%);
+  transform: translateY(-200%);
+}
+
+.btn-effect:hover span:last-child {
+  -webkit-transform: translateY(-100%) translateX(-50%);
+  transform: translateY(-100%) translateX(-50%);
+}
+
+/* Icon orientation */
+.btn-effect .icon {
+  font-size: 1.5rem;
+  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon-arrow-right:before {
+  font-family: FontAwesome;
+  content: "\f015";
+}
+
+.compass-container {
+    @media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    span {
+        font-size: 0.8rem;
+    }
+
+    .compass-container {
+        width: 40% !important;
+        padding-top: 20px !important;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .compass-container {
+        width: 60% !important;
+        padding-top: 10px !important;
+    }
+    }
+}

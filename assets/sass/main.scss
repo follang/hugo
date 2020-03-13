@@ -10,16 +10,13 @@ $ac-light: {{ .Site.Data.color.ac_light }};
 
 $dark-main: {{ .Site.Data.color.dark_main }};
 $dark-nav: {{ .Site.Data.color.dark_nav }};
-$dark-side: {{ .Site.Data.color.dark_side }};
 $dark-bg: {{ .Site.Data.color.dark }};
 $dark-fg: {{ .Site.Data.color.light }};
 
 $light-main: {{ .Site.Data.color.light_main }};
 $light-nav: {{ .Site.Data.color.light_nav }};
-$light-side: {{ .Site.Data.color.light_side }};
 $light-bg: {{ .Site.Data.color.light }};
 $light-fg: {{ .Site.Data.color.dark }};
-
 
 
 @import 'abstracts/variables';
@@ -59,6 +56,7 @@ $light-fg: {{ .Site.Data.color.dark }};
 @import 'layout/main';
 @import 'layout/navbar';
 
+@import '404';
 @import 'pages/home';
 @import 'pages/single';
 @import 'pages/list';

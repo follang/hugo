@@ -14,19 +14,19 @@
     top: 0;
   }
 
-
   &__label {
     font-family: $title-font;
     font-size: 1rem;
     margin: 0.65rem 0;
     padding-bottom: 0.5rem;
     text-transform: capitalize;
-    display: none;
 
     @include themify($themes) {
       color: themed('toc-label-color');
     }
-
+    @media only screen and (min-width: 600px) {
+        display: none;
+    }
     @media only screen and (max-width: 600px) {
       text-align: center;
       font-size: 1.125rem;
@@ -37,13 +37,14 @@
     cursor: pointer;
     position: relative;
     word-break: break-word;
-    font-size: 0.925rem;
+    font-size: 1rem;
     height: $menu-title-height;
     margin: 0.25rem 0;
-
+    @media only screen and (max-width: 600px) {
+        height: 25px;
+    }
 
     &[data-depth="1"] {
-      font-size: 0.925rem;
       margin-left: 1.25rem;
       @include themify($themes) {
           color: themed('menu-index-color-1');
@@ -51,7 +52,6 @@
     }
 
     &[data-depth="2"] {
-      font-size: 0.925rem;
       margin-left: 2.5rem;
       @include themify($themes) {
           color: themed('menu-index-color-2');
@@ -59,7 +59,6 @@
     }
 
     &[data-depth="3"] {
-      font-size: 0.925rem;
       margin-left: 3.75rem;
       @include themify($themes) {
           color: themed('menu-index-color-3');
@@ -67,7 +66,6 @@
     }
 
     &[data-depth="4"] {
-      font-size: 0.925rem;
       margin-left: 5rem;
       @include themify($themes) {
           color: themed('menu-index-color-4');
@@ -82,23 +80,23 @@
       @include on-event {
         color: themed('no-active-font-color');
         text-decoration:none;
-        transition:.1s;
+        transition:.2s;
       }
-
       &.active {
         font-weight: bold;
         color: themed('active-font-color');
-
       }
     }
 
     &--collapse {
       cursor: pointer;
       word-break: break-word;
-      font-size: 16px;
+      font-size: 1.1rem;
       height: $menu-title-height;
       margin: 0.25rem 0;
-
+      @media only screen and (max-width: 600px) {
+        height: 25px;
+      }
       &[data-depth="1"] {
         font-size: 0.925rem;
         margin-left: 1.25rem;
@@ -108,7 +106,6 @@
       }
 
       &[data-depth="2"] {
-        font-size: 0.925rem;
         margin-left: 2.5rem;
         @include themify($themes) {
           color: themed('menu-index-color-2');
@@ -116,7 +113,6 @@
       }
 
       &[data-depth="3"] {
-        font-size: 0.925rem;
         margin-left: 3.75rem;
         @include themify($themes) {
           color: themed('menu-index-color-3');
@@ -124,7 +120,6 @@
       }
 
       &[data-depth="4"] {
-        font-size: 0.925rem;
         margin-left: 5rem;
         @include themify($themes) {
           color: themed('menu-index-color-4');
@@ -136,6 +131,7 @@
       @include align-items(center);
       @include themify($themes) {
           color: themed('menu-index-color');
+          transition:.2s;
         &.active {
           svg {
             color: themed('active-font-color');
@@ -155,7 +151,7 @@
     }
 
     &--icon {
-      margin-top: 2px;
+      margin-top: -1px;
 
       @include themify($themes) {
         color: themed('menu-arrow-color');
@@ -193,12 +189,10 @@
     max-height: 0;
     overflow: hidden;
     word-wrap: break-word;
-    
     @include transition();
 
     li {
       margin-left: 1.25rem;
-
       &.active {
         font-weight: bold;
       }

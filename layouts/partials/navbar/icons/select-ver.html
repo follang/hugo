@@ -1,0 +1,47 @@
+{{/* Prefix labels for menus */}}
+{{ $.Scratch.Set "docLabel" .Site.Params.doclabel }}
+{{ $.Scratch.Set "releaseLabel" .Site.Params.releaselabel }}
+{{ $masterMainLabel := .Site.Params.masterlabel }}
+{{ $masterDropLabel := .Site.Params.masterfolder }}
+
+{{/* set defaults for version and dropdown menu highlighting */}}
+{{ $.Scratch.Set "activeVersion" .Site.Params.version }}
+{{ $.Scratch.Set "docsVer" .Site.Params.version }}
+
+{{/* retrieve current page */}}
+{{ $curPage := .Page.Section }}
+
+{{ range .Site.Params.versions }}
+  {{ if eq $curPage .dirpath }}
+
+    {{ if eq $curPage $masterDropLabel }}
+      {{/* pre-release content (master branch) */}}
+      {{ $.Scratch.Set "docLabel" $masterMainLabel }}
+      {{ $.Scratch.Set "releaseLabel" $masterMainLabel }}
+    {{ else }}
+      {{/* released version */}}
+      {{ $.Scratch.Add "docLabel" " " }}
+      {{ $.Scratch.Add "docLabel" .version }}
+      {{ $.Scratch.Set "docsVer" .version }}
+      {{ $.Scratch.Add "releaseLabel" " " }}
+      {{ $.Scratch.Add "releaseLabel" .version }}
+    {{ end }}
+
+    {{ $.Scratch.Set "activeVersion" .version }}
+  {{ end }}
+{{ end }}
+
+<div class="dropdown">
+  <button class="lang__dropdown navbar__icons--icon" aria-label="Select Site Language">
+    {{ partial "svgs/version.svg" (dict "width" 20 "height" 20) }}
+  </button>
+  <div class="dropdown-content lang__dropdown--content">
+    {{ range .Site.Params.versions }}
+        {{ if eq ( $.Scratch.Get "activeVersion" ) ( printf "%s" .version ) }}
+            <a href="{{ .url }}" data-lang="{{ .version }}" class="lang__dropdown--item active">{{ printf "%s" .version }}</a>
+        {{ else }}
+            <a href="{{ .url }}" data-lang="{{ .version }}" class="lang__dropdown--item">{{ printf "%s" .version }}</a>
+        {{ end }}
+    {{ end }}
+  </div>
+</div>

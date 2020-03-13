@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="{{ .width }}" height="{{ .height }}" fill="currentColor" viewBox="0 0 42 24">
+  <g fill="#b380ff">
+    <path d="M20.986.868a11.16 11.16 0 00-2.489.296V8.97L23.646 6 28.1 3.427a11.16 11.16 0 00-2.38-1.497l-4.735 2.733zm-3.898.712A11.16 11.16 0 0014.6 2.896v5.5l-3.29-1.899a11.16 11.16 0 00-.995 2.298l1.628.939 5.145 2.97v-5.94zm12.048 2.826l-1.632.943-5.146 2.972 5.146 2.97 4.483 2.587a11.16 11.16 0 00.167-1.852 11.16 11.16 0 00-.048-.948L27.331 8.32l3.296-1.903a11.16 11.16 0 00-1.491-2.012zm-19.134 5.775a11.16 11.16 0 00-.167 1.845 11.16 11.16 0 00.047.959l4.787 2.764-3.296 1.903a11.16 11.16 0 001.492 2.008l1.632-.94 5.147-2.971-5.147-2.972zm14.861 1.186v11.119a11.16 11.16 0 002.486-1.303v-5.508l3.31 1.91a11.16 11.16 0 001.004-2.292l-1.655-.955zm-1.368 3.7l-5.146 2.972-4.469 2.58a11.16 11.16 0 002.38 1.498l4.748-2.743v3.812a11.16 11.16 0 002.487-.299V21.01z"/>
+    <text style="line-height:1.25;font-feature-settings:normal;text-align:start" x="12.5" y="152.709" font-weight="400" font-size="137.837" letter-spacing="0" word-spacing="0" transform="matrix(.11697 0 0 .11697 -2.367 .348)" font-family="Bahnschrift" stroke-width="3.446">
+      <tspan x="12.5" y="152.709" style="font-feature-settings:normal;text-align:start">F</tspan>
+    </text>
+    <text style="line-height:1.25;font-feature-settings:normal;text-align:start" x="-387.54" y="150.732" transform="matrix(-.11697 0 0 .11697 -2.367 .348)" font-weight="400" font-size="137.837" letter-spacing="0" word-spacing="0" font-family="Bahnschrift" stroke-width="3.446">
+      <tspan x="-387.54" y="150.732" style="font-feature-settings:normal;text-align:start">L</tspan>
+    </text>
+  </g>
+</svg>

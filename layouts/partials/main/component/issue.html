@@ -1,0 +1,90 @@
+{{ $master := .Site.Params.masterfolder }}
+{{ if .Path }}
+  {{/* Set default values */}}
+  {{ $pageSection := .Page.Section }}
+  {{ $.Scratch.Set "filepath" .Path }}
+  {{ $.Scratch.Set "gh_branch" ($.Param "latest_github_branch") }}
+  {{ $.Scratch.Set "gh_repo" ($.Param "github_docsrepo") }}
+
+  {{/* Set the right filepaths to match whats in the repo */}}
+  {{/* Replace all 'v.#.#-docs' to just 'docs' */}}
+  {{ if in $pageSection "docs" }}
+    {{ $.Scratch.Set "filepath" (replaceRE "v[0-9]*.[0-9]*-docs" "docs" (printf "%s" ($.Scratch.Get "filepath"))) }}
+  {{ end }}
+  {{/* Point to 'master' for pre-release content */}}
+  {{ if eq $pageSection $master }}
+   {{ $.Scratch.Set "filepath" (replaceRE (printf "%s" $master) "docs" (printf "%s" ($.Scratch.Get "filepath"))) }}
+  {{ end }}
+  {{/* Remove the "hub" from path for fol/community content */}}
+  {{ if in $pageSection "hub" }}
+    {{ $.Scratch.Set "filepath" (replaceRE "hub\\/" "" (printf "%s" ($.Scratch.Get "filepath"))) }}
+  {{ end }}
+
+  {{/* Open to the README.md in github repo */}}
+  {{ if in (printf "%s" .File) "index.md" }}
+    {{ $.Scratch.Set "filepath" (replaceRE "_index" "README" ($.Scratch.Get "filepath")) }}
+    {{ $.Scratch.Set "filepath" (replaceRE "index" "README" ($.Scratch.Get "filepath")) }}
+  {{ end }}
+
+  {{/* Find the github branch for the corresponding docs version otherwise set to master */}}
+  {{ if in $pageSection "docs" }}
+    {{ range .Site.Params.versions }}
+      {{ if eq $pageSection .dirpath }}
+        {{ $.Scratch.Set "gh_branch" .ghbranchname }}
+      {{ end }}
+    {{ end }}
+  {{ else }}
+    {{ $.Scratch.Set "gh_branch" "master" }}
+  {{ end }}
+
+  {{ if ($.Scratch.Get "gh_repo") }}
+    {{/* Show different links for each website section */}}
+    {{ if ne $pageSection "blog" }}
+
+    {{/* DOCS or COMMUNITY section */}}
+    {{/* Default to fol/docs repo OR use fol/community repo for CONTRIB info */}}
+    {{ if eq $pageSection "hub" }}
+      {{ $.Scratch.Set "gh_repo" ($.Param "github_communityrepo") }}
+    {{ end }}
+
+    {{ $editURL := printf "%s/tree/%s/%s" ($.Scratch.Get "gh_repo") ($.Scratch.Get "gh_branch") ($.Scratch.Get "filepath") }}
+    <div>
+        <a href="{{ $editURL }}" >{{ partial "svgs/pen.svg" (dict "width" 15 "height" 15) }} Edit this page</a>
+    </div>
+
+    {{ $issuesURL := printf "%s/issues/new?title=%s(%s)&labels=kind%2Fbug&template=bug-in-existing-docs.md" ($.Scratch.Get "gh_repo") (htmlEscape $.Title) (htmlEscape $.Path) }}
+    <div>
+        <a href="{{ $issuesURL }}" >{{ partial "svgs/issue.svg" (dict "width" 15 "height" 15) }} Create issue</a>
+    </div>
+
+    {{/* Determine the fol component */}}
+    {{ if or (eq $pageSection "docs") (eq $pageSection .Site.Params.masterfolder) }}
+      {{ if in (printf "%s" ($.Scratch.Get "filepath")) "/serving/" }}
+        {{ $.Scratch.Set "gh_repo" (printf "%s/issues/new" ($.Param "github_servingrepo")) }}
+      {{ end }}
+      {{ if in (printf "%s" ($.Scratch.Get "filepath")) "/eventing" }}
+        {{ $.Scratch.Set "gh_repo" (printf "%s/issues/new" ($.Param "github_eventingrepo")) }}
+      {{ end }}
+
+      {{ if ne (printf "%s" ($.Scratch.Get "gh_repo")) ($.Param "github_docsrepo") }}
+    <div>
+      <a href="{{ $.Scratch.Get "gh_repo" }}"> {{ partial "svgs/issue.svg" (dict "width" 15 "height" 15) }} Create issue </a>
+    </div>
+      {{ end }}
+    {{ end }}
+
+    {{/* BLOG section - Show Post link */}}
+    {{ else if (eq $pageSection "blog")}}
+    {{ if eq .Dir "blog/" }}
+    {{ $.Scratch.Set "blogsec" "fol " }}
+    {{ else }}
+    {{ $getfolder := (replace (printf "%s" .Dir) "blog/" "" ) }}
+    {{ $getfolder := (replace (printf "%s" $getfolder) "/" " " ) }}
+    {{ $.Scratch.Set "blogsec" $getfolder }}
+    {{ end }}
+    <div>
+        <a href="https://github.com/fol/docs/new/master/{{ .Dir }}" target="_blank">{{ partial "svgs/pen.svg" (dict "width" 15 "height" 15) }} Post to the {{ $.Scratch.Get "blogsec" }}blog</a>
+    </div>
+    {{ end }}
+  {{ end }}
+{{ end }}

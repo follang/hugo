@@ -37,7 +37,7 @@ commento = false
 # Default docs parameters
 
 # GitHub branch (latest release)
-latest_github_branch = "release-0.12"
+latest_github_branch = "master"
 # Default version (latest release)
 version = "v0.12"
 ########################
@@ -49,12 +49,12 @@ releaselabel = "Release: "
 # Pre-release
 masterlabel = "Pre-release"
 # section path value ("master" docs directory folder on website)
-masterfolder = "development"
+masterfolder = "docs"
 
 # Footer content
 folAuthors = "FOL"
 folLicense = "FOL Licensing"
-fol_license = "https://github.com/follang/fol/blob/master/LICENSE.mb"
+fol_license = "https://github.com/follang/fol/blob/master/LICENSE.md"
 
 # GitHub repositories
 github_docsrepo = "https://github.com/follang/docs"
@@ -62,81 +62,69 @@ github_communityrepo = "https://github.com/follang/community"
 github_eventingrepo = "https://github.com/follang/eventing"
 github_servingrepo = "https://github.com/follang/serving"
 
-[links]
-# End user relevant links. These will show up on left side of footer and in the community page if you have one.
-[[links.user]]
-  name = "FOL users Group"
-  url = "https://groups.google.com/forum/#!forum/fol"
-  external = "true"
-  icon = "fa fa-users"
-        desc = "Discussion and help from your fellow users"
-[[links.user]]
-  name ="Twitter"
-  url = "https://twitter.com/follang"
-  external = "true"
-  icon = "fab fa-twitter"
-        desc = "Follow us on Twitter to get the latest news!"
-[[links.user]]
-  name = "Stack Overflow questions"
-  url = "https://stackoverflow.com/questions/tagged/*fol*"
-  external = "true"
-  icon = "fab fa-stack-overflow"
-        desc = "FOL tagged questions and curated answers"
 
-# Developer relevant links. These will show up on right side of footer and in the community page if you have one.
-[[links.developer]]
-  name = "FOL GitHub repo"
-  url = "https://github.com/follang"
-  external = "true"
-  icon = "fab fa-github"
-        desc = "Development takes place here!"
-[[links.developer]]
-  name = "FOL Slack channels"
-  url = "https://fol.slack.com/"
-  external = "true"
-  icon = "fab fa-slack"
-        desc = "Chat with other project developers"
-[[links.developer]]
-  name = "FOL developers Group"
-  url = "https://groups.google.com/forum/#!forum/fol"
-  external = "true"
-  icon = "fa fa-users"
-        desc = "Discuss development issues around the project"
 
-# Community page links.
-[[links.usecode]]
-  name = "Community code samples"
-  url = "./samples/"
-  external = "false"
-  icon = "fa fa-code"
-        desc = "Community owned and maintained code samples"
-[[links.usecode]]
-  name = "Eventing"
-  url = "../docs/eventing/samples/"
-  external = "false"
-  icon = "fa fa-code"
-        desc = "Code samples for the Eventing component"
-[[links.usecode]]
-  name = "Serving"
-  url = "../docs/serving/samples/"
-  external = "false"
-  icon = "fa fa-code"
-        desc = "Code samples for the Serving component"
-[[links.usecode]]
-  name = "All"
-  url = "../docs/samples/"
-  external = "false"
-  icon = "fa fa-list"
-  desc = "See a list of all code samples"
-[[links.sharecode]]
-  name = "Contribute code samples"
-  url = "./samples/"
-  external = "false"
-  icon = "fa fa-share"
-        desc = "Share your samples with the community"
-[[links.sharecode]]
-  name = "Link existing code samples"
-  url = "../docs/samples/#external-code-samples"
-  external = "false"
-  icon = "fa fa-link"
-        desc = "Link to your FOL samples that live on another site"
+# Doc versions params
+# Create a separate [[versions]] set for every version / doc set branch
+# Use the ghbranchname param for specifying the GitHub branchname ->
+# Example:
+#   [thisisalink](https://github.com/.../tree/{{< params "ghbranchname" >}}/...)
+#
+# [[versions]] - Defines a single "version" of the docs
+#   version - Intuitive version label (ie. visible in menus)
+#   ghbranchname - Name of branch of the doc version in GitHub
+#                  (https://github.com/<username>/docs/branches)
+#   url - Fully qualified website URL to the doc version
+#         (ie. https://www.<domain>.dev/[dirpath])
+#   dirpath - The content folder name of the doc version
+#           - Latest release is always set to "docs"
+#           - Past/archived releases change to "v#.#-docs",
+#             where # is the MAJOR and MINOR semantic version values
+
+# Latest version
+################
+# Set to "docs" path
+
+[[versions]]
+  version = "v0.12"
+  ghbranchname = "master"
+  url = "/docs/"
+  dirpath = "docs"
+
+# Archived versions
+###################
+# Prefix all past versions with release # "v#.#-docs"
+
+[[versions]]
+  version = "v0.11"
+  ghbranchname = "release-0.11"
+  url = "/v0.11-docs/"
+  dirpath = "v0.11-docs"
+
+[[versions]]
+  version = "v0.10"
+  ghbranchname = "release-0.10"
+  url = "/v0.10-docs/"
+  dirpath = "v0.10-docs"
+
+[[versions]]
+  version = "v0.9"
+  ghbranchname = "release-0.9"
+  url = "/v0.9-docs/"
+  dirpath = "v0.9-docs"
+
+[[versions]]
+  version = "Archives"
+  ghbranchname = ""
+  url = "https://github.com/zzossig/hugo-theme-zdoc/branches"
+  dirpath = ""
+
+# Pre-release version
+###################
+# In-development (pre-release) content - "master" branch
+
+[[versions]]
+  version = "Pre-release"
+  ghbranchname = "master"
+  url = "/development/"
+  dirpath = "development"
