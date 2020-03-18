@@ -1,0 +1,63 @@
+div.notices {
+    margin: 2rem 1rem;
+    position: relative;
+}
+div.notices p {
+    padding: 15px;
+    display: block;
+    font-size: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+}
+div.notices p:first-child:before {
+    position: absolute;
+    top: 2px;
+    color: #fff;
+    font-family: "FontAwesome";
+    font-weight: 900;
+    content: "\f06a";
+    left: 10px;
+}
+div.notices p:first-child:after {
+    position: absolute;
+    top: 2px;
+    color: #fff;
+    left: 2rem;
+}
+
+div.notices.info p {
+    border-top: 30px solid rgba(#F0B37E, .8);
+    background-color: rgba(#F0B37E, .4);
+}
+div.notices.info p:first-child:after {
+    content: 'Info';
+}
+div.notices.warn p {
+    border-top: 30px solid rgba(#d75f5f, .8);
+    background-color: rgba(#d75f5f, .4);
+}
+div.notices.warn p:first-child:after {
+    content: 'Warn';
+}
+div.notices.note p {
+    border-top: 30px solid rgba(#6AB0DE, .8);
+    background-color: rgba(#6AB0DE, .4);
+}
+div.notices.note p:first-child:after {
+    content: 'Note';
+}
+div.notices.tip p {
+    border-top: 30px solid rgba(#5faf5f, .8);
+    background-color: rgba(#5faf5f, .4);
+}
+div.notices.tip p:first-child:after {
+    content: 'Tip';
+}
+
+div.notices.box p {
+    border-top: 30px solid rgba($ac, .8);
+    background-color: rgba($ac, .4);
+}
+div.notices.box p:first-child:after {
+    content: 'Box';
+}

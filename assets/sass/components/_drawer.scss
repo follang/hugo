@@ -1,10 +1,19 @@
+.left-drawer {
+    left: -100%;
+}
+.right-drawer {
+    right: -100%;
+}
+#myDrawer{
+    left: -100%;
+}
 .drawer {
   position: fixed;
   top: 0;
-  left: -100%;
   z-index: z('drawer');
   width: $drawer-width;
   height: 100%;
+  max-width: 20rem;
 
   @include transition(all, 0.5s, ease-out);
   @include themify($themes) {

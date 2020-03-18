@@ -1,0 +1,23 @@
+<div id="rightDrawer" class="drawer right-drawer" style="right: -100%">
+  <div class="drawer__body">
+    {{ partial "main/component/toc.html" . }}
+  </div>
+</div>
+<div id="rightModal" class="modal" style="opacity: 0; right: -100%"></div>
+
+<script>
+  var isDrawerOpen = localStorage.getItem('isDrawerOpen');
+  var rightModal = document.getElementById("rightModal");
+  var rightDrawer = document.getElementById('rightDrawer');
+
+  {{ $languagedir := ($.Param "languagedir" | default "ltr") }}
+  var languagedir = JSON.parse({{ $languagedir | jsonify }});
+
+  var openRightDrawer = function () {
+    rightModal.style.opacity = 1;
+    rightModal.style.right = 0;
+    rightDrawer.style.right = 0;
+  }
+
+  if (isRightDrawerOpen && isRightDrawerOpen === 'true') { openRightDrawer(); }
+</script>

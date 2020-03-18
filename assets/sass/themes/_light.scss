@@ -1,7 +1,7 @@
 $light: (
   link: $ac,
   link-hover: $ac,
-  body-color: $light-fg,
+  body-color: rgba($light-fg, .8),
   hr-color: $light-bg,
   title-color: darken($light-bg, 70%),
   subtitle-color: darken($light-bg, 50%),

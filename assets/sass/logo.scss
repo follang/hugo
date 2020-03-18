@@ -1,0 +1,9 @@
+.the_logo {
+    animation: rotatelogo 15s linear infinite;
+    background-color: rgba(0,0,0,0) !important;
+    transform-origin: center;
+    @keyframes rotatelogo {
+        0% { transform: rotate(0); }
+        100% { transform: rotate(-360deg); }
+    }
+}

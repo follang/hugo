@@ -1,10 +1,27 @@
 <div class="top">
   <div class="header__wrapper bgcolor__header">
     <div class="divider">
-      <div class="lmr">
+      <div class="lmr flexbox">
+        <div id="leftBurger" class="hide">
+        <a href="#" class="burgermenu">
+            <div class="navbar__icons--icon burgers leftBurger">
+                {{ partial "svgs/burgerLeft.svg" (dict "width" 20 "height" 20) }}
+            </div>
+        </a>
+        </div>
+        <div class="grow"></div>
         <h2 class="title">{{ .Title }}</h2>
+        <div class="grow"></div>
+        <div id="rightBurger" class="hide">
+        <a href="#" class="burgermenu">
+            <div class="navbar__icons--icon burgers rightBurger">
+                {{ partial "svgs/burgerRight.svg" (dict "width" 20 "height" 20) }}
+            </div>
+        </a>
+        </div>
       </div>
     </div>
+
   </div>
 
   <div class="header__wrapper bgcolor__breadcrumb">
@@ -13,10 +30,35 @@
         {{ if $.Param "enableBreadcrumb" }}
           {{ partial "main/component/breadcrumb.html" . }}
         <div class="grow"></div>
-        {{ partial "main/component/edit-this-page.html" . }}
         {{ partial "main/component/version.html" . }}
         {{ end }}
       </div>
     </div>
   </div>
 </div>
+
+
+<script>
+  var leftBurger = document.getElementById('leftBurger');
+  var rightBurger = document.getElementById('rightBurger');
+  enquire.register("screen and (max-width:1280px)", {
+    match: function () {
+      rightBurger.className = '';
+    },
+    unmatch: function () {
+      rightBurger.className = 'hide';
+    },
+  }).register("screen and (max-width:960px)", {
+    match: function () {
+    },
+    unmatch: function () {
+    },
+  }).register("screen and (max-width:600px)", {
+    match: function () {
+      leftBurger.className = '';
+    },
+    unmatch: function () {
+      leftBurger.className = 'hide';
+    },
+  });
+</script>

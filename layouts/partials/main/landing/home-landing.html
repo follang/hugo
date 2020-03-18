@@ -8,9 +8,8 @@
     <div class="home__landing" style="height: {{ .height }}px;">
       {{ if .image }}
         <div class="home__landing--img">
-          <img src="{{ .image | relURL }}" alt="Site Landing Page image">
+          {{ partial "svgs/fol_full.svg" (dict "width" 450 "height" 180) }}
         </div>
-        <div style="width:5%;"></div>
         <div class="home__landing--txt">
           {{ if .title }}
             {{ range .title }}

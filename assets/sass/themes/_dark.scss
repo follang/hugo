@@ -1,7 +1,7 @@
 $dark: (
   link: $ac,
   link-hover: $ac,
-  body-color: $dark-fg,
+  body-color: rgba($dark-fg, .8),
   hr-color: $dark-bg,
   title-color: lighten($dark-bg, 70%),
   subtitle-color: lighten($dark-bg, 50%),

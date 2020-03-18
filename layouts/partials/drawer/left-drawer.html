@@ -1,0 +1,23 @@
+<div id="leftDrawer" class="drawer left-drawer" style="left: -100%">
+  <div class="drawer__body">
+    {{ partial "main/sections/list-menu.html" . }}
+  </div>
+</div>
+<div id="leftModal" class="modal" style="opacity: 0; left: -100%"></div>
+
+<script>
+  var isDrawerOpen = localStorage.getItem('isDrawerOpen');
+  var leftModal = document.getElementById("leftModal");
+  var leftDrawer = document.getElementById('leftDrawer');
+
+  {{ $languagedir := ($.Param "languagedir" | default "ltr") }}
+  var languagedir = JSON.parse({{ $languagedir | jsonify }});
+
+  var openLeftDrawer = function () {
+    leftModal.style.opacity = 1;
+    leftModal.style.left = 0;
+    leftDrawer.style.left = 0;
+  }
+
+  if (isLeftDrawerOpen && isLeftDrawerOpen === 'true') { openLeftDrawer(); }
+</script>

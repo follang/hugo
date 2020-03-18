@@ -48,13 +48,13 @@
     {{ end }}
 
     {{ $editURL := printf "%s/tree/%s/%s" ($.Scratch.Get "gh_repo") ($.Scratch.Get "gh_branch") ($.Scratch.Get "filepath") }}
-    <div>
-        <a href="{{ $editURL }}" >{{ partial "svgs/pen.svg" (dict "width" 15 "height" 15) }} Edit this page</a>
+    <div class="toc__issue-el">
+        <a href="{{ $editURL }}">{{ partial "svgs/pen.svg" (dict "width" 15 "height" 15) }} Edit this page </a>
     </div>
 
     {{ $issuesURL := printf "%s/issues/new?title=%s(%s)&labels=kind%2Fbug&template=bug-in-existing-docs.md" ($.Scratch.Get "gh_repo") (htmlEscape $.Title) (htmlEscape $.Path) }}
-    <div>
-        <a href="{{ $issuesURL }}" >{{ partial "svgs/issue.svg" (dict "width" 15 "height" 15) }} Create issue</a>
+    <div class="toc__issue-el">
+        <a href="{{ $issuesURL }}">{{ partial "svgs/issue.svg" (dict "width" 15 "height" 15) }} Issue a problem </a>
     </div>
 
     {{/* Determine the fol component */}}
@@ -67,8 +67,8 @@
       {{ end }}
 
       {{ if ne (printf "%s" ($.Scratch.Get "gh_repo")) ($.Param "github_docsrepo") }}
-    <div>
-      <a href="{{ $.Scratch.Get "gh_repo" }}"> {{ partial "svgs/issue.svg" (dict "width" 15 "height" 15) }} Create issue </a>
+    <div class="toc__issue-el">
+      <a href="{{ $.Scratch.Get "gh_repo" }}"> {{ partial "svgs/issue.svg" (dict "width" 15 "height" 15) }} Issue a problem </a>
     </div>
       {{ end }}
     {{ end }}
@@ -82,7 +82,7 @@
     {{ $getfolder := (replace (printf "%s" $getfolder) "/" " " ) }}
     {{ $.Scratch.Set "blogsec" $getfolder }}
     {{ end }}
-    <div>
+    <div class="toc__issue-el">
         <a href="https://github.com/fol/docs/new/master/{{ .Dir }}" target="_blank">{{ partial "svgs/pen.svg" (dict "width" 15 "height" 15) }} Post to the {{ $.Scratch.Get "blogsec" }}blog</a>
     </div>
     {{ end }}

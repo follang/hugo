@@ -1,6 +1,6 @@
 <div id="siteLogo" class="navbar__logo--wrapper">
   {{ if $.Param "logo" | default true }}
-    <div onclick="location.href='{{ "/" | relLangURL }}';" style="cursor: pointer;" id="svglogo" class="navbar__icons--icon">
+    <div onclick="location.href='{{ "/" | relLangURL }}';" style="cursor: pointer;" id="the_logo" class="navbar__icons--icon">
         {{ partial "svgs/fol_min.svg" (dict "width" 40 "height" 35) }}
     </div>
   {{ else }}

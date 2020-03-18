@@ -56,7 +56,11 @@ $light-fg: {{ .Site.Data.color.dark }};
 @import 'layout/main';
 @import 'layout/navbar';
 
+@import 'shortcode/notice';
+@import 'shortcode/placeholder';
+
 @import '404';
+@import 'logo';
 @import 'pages/home';
 @import 'pages/single';
 @import 'pages/list';

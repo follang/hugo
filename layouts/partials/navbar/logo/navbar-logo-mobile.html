@@ -1,13 +1,5 @@
 <div id="mobileLogo" class="hide">
-{{ if .IsHome }}
     <div onclick="location.href='{{ "/" | relLangURL }}';" style="cursor: pointer;" id="svglogo" class="navbar__icons--icon">
-        {{ partial "svgs/fol_min.svg" (dict "width" 40 "height" 35) }}
+        {{ partial "svgs/fol_min.svg" (dict "width" 35 "height" 35) }}
     </div>
-{{ else }}
-<a href="#" class="navbar__logo--link">
-    <div class="navbar__icons--icon">
-        {{ partial "svgs/menu.svg" (dict "width" 25 "height" 25) }}
-    </div>
-</a>
-{{ end }}
 </div>

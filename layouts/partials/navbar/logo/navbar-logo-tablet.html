@@ -1,10 +1,10 @@
 <div id="tabletLogo" class="hide">
   {{ if $.Param "logo" | default true }}
-    <div onclick="location.href='{{ "/" | relLangURL }}';" style="cursor: pointer;" id="svglogo" class="navbar__icons--icon">
+    <div onclick="location.href='{{ "/" | relLangURL }}';" style="cursor: pointer;" id="the_logo" class="navbar__icons--icon">
         {{ partial "svgs/fol_min.svg" (dict "width" 40 "height" 35) }}
     </div>
   {{ else }}
-  <a href="{{ "/" | relLangURL }}" title="{{ i18n "tooltip-home" }}" rel="home" class="navbar__logo--text-link">
+    <a href="{{ "/" | relLangURL }}" title="{{ i18n "tooltip-home" }}" rel="home" class="navbar__logo--text-link">
       <h6 class="navbar__logo--text" data-bgimg="{{ if and ($.Params.landing.backgroundImage) $.IsHome }}true{{ else }}false{{ end }}">{{ .Site.Params.logoText }}</h6>
     </a>
   {{ end }}

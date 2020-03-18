@@ -1,0 +1,19 @@
+div.placeholder {
+    margin: 2rem 1rem;
+    position: relative;
+    font-family: $code-font;
+    @include themify($themes) {
+        border-top: 2px solid rgba($ac, .8);
+        background-color: rgba(themed('navbar-background-color'), .8);
+    }
+}
+div.placeholder p {
+    padding: 15px;
+    display: block;
+    font-size: 1rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    @include themify($themes) {
+        color: rgba(themed('body-color'), .6);
+    }
+}
