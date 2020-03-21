@@ -3,6 +3,7 @@
   position: sticky;
   top: $grid-nav-height;
   padding: 0.5rem;
+  padding-left: 1rem;
   margin: 0.5rem;
   margin-top: 0;
   padding-top: 0.85rem;
@@ -145,6 +146,14 @@
             color: themed('link-hover');
             @include translateX(0.125rem);
           }
+        }
+      }
+    }
+
+    &--text {
+        @include themify($themes) {
+        &.active {
+            color: themed('active-font-color');
         }
       }
     }

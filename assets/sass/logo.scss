@@ -1,16 +1,17 @@
-#the_logo{
+#the_logo {
     background-color: transparent !important;
     &:hover .the_logo {
         @include themify($themes) {
             fill: themed('navbar-menu-color');
         }
     }
-    .the_logo {
-        animation: rotatelogo 15s linear infinite;
-        transform-origin: center;
-        @keyframes rotatelogo {
-            0% { transform: rotate(0); }
-            100% { transform: rotate(-360deg); }
-        }
+}
+.the_logo {
+    animation: rotatelogo 15s linear infinite;
+    transform-origin: center;
+    @keyframes rotatelogo {
+        0% { transform: rotate(0); }
+        100% { transform: rotate(-360deg); }
     }
 }
+
