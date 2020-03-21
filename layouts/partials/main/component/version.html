@@ -31,8 +31,8 @@
         {{ $.Scratch.Set "activeVersion" .version }}
     {{ end }}
     {{ end }}
-    <div class="dropdown versioner" style="padding-right:.3%;">
-        <div style="line-height:2em;">{{ $.Scratch.Get "activeVersion" }} {{ partial "svgs/arrow-down.svg" (dict "width" 12 "height" 12) }}</div>
+    <div class="dropdown versioner">
+        <div style="line-height:2.1rem;">{{ $.Scratch.Get "activeVersion" }} {{ partial "svgs/arrow-down.svg" (dict "width" 10 "height" 10) }}</div>
         <div class="dropdown-content lang__dropdown--content">
             {{ range .Site.Params.versions }}
                 {{ if eq ( $.Scratch.Get "activeVersion" ) ( printf "%s" .version ) }}

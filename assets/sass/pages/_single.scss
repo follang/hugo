@@ -297,27 +297,24 @@
     }
 
     .table-wrapper {
-      overflow-x: auto;    
-      margin: 1rem;  
+      overflow-x: auto;
+      margin: 1rem;
 
       > table {
-        max-width: 100%;
+        width: 100%;
         margin: 10px 0;
         border-spacing: 0;
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.125);
-        
         @include themify($codeblock) {
           thead {
-            background: themed('content-pre-header-background-color');
+            background: themed('content-pre-background-color');
+            border-bottom: 3px solid $ac;
+            text-transform: uppercase;
           }
-
-          th {
-            color: themed('content-pre-header-color');            
-          }
-
+        }
+        @include themify($themes) {
           th, td {
             padding: 0.25rem 0.5rem;
-            border: 1px double themed('content-pre-border-background-color');
+            border: 2px solid themed('border-line-color');
           }
         }
       }

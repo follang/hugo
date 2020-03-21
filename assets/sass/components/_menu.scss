@@ -47,28 +47,28 @@
     &[data-depth="1"] {
       margin-left: 1.25rem;
       @include themify($themes) {
-          color: themed('menu-index-color-1');
+          color: themed('menu-index-color-2');
       }
     }
 
     &[data-depth="2"] {
       margin-left: 2.5rem;
       @include themify($themes) {
-          color: themed('menu-index-color-2');
+          color: themed('menu-index-color-3');
       }
     }
 
     &[data-depth="3"] {
       margin-left: 3.75rem;
       @include themify($themes) {
-          color: themed('menu-index-color-3');
+          color: themed('menu-index-color-4');
       }
     }
 
     &[data-depth="4"] {
       margin-left: 5rem;
       @include themify($themes) {
-          color: themed('menu-index-color-4');
+          color: themed('menu-index-color-5');
       }
     }
 
@@ -98,7 +98,6 @@
         height: 25px;
       }
       &[data-depth="1"] {
-        font-size: 0.925rem;
         margin-left: 1.25rem;
         @include themify($themes) {
           color: themed('menu-index-color-1');

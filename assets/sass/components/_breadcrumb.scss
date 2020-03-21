@@ -50,10 +50,10 @@
   }
 }
 
-.issue-icons {
-    width: 30px !important;
-    height: 30px !important;
-    padding-right: .5rem;
+.versioner {
+    padding-left: 0.9rem;
+    padding-right: 0.7rem;
+    font-size: .8rem;
     @include themify($themes) {
         color: themed('navbar-icon-color');
         @include on-event {
