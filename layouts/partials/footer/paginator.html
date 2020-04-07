@@ -1,0 +1,73 @@
+{{ define "pagination" }}
+{{ $currentNode := .currentnode }}
+{{ $menu_exclusion := .menu_exclusion }}
+
+{{ if hasPrefix $currentNode.Permalink .menu.Permalink }}
+  {{ $currentNode.Scratch.Set "NextPageOK" "OK" }}
+  {{ if .menu.IsHome }}
+    {{ $currentNode.Scratch.Set "prevPage" "" }}
+  {{ else }}
+    {{ $currentNode.Scratch.Set "prevPage" ($currentNode.Scratch.Get "prevPageTmp") }}
+  {{ end }}
+{{ else }}
+  {{ if eq ($currentNode.Scratch.Get "NextPageOK") "OK" }}
+    {{ $currentNode.Scratch.Set "NextPageOK" nil }}
+    {{ if in $menu_exclusion .menu.Section }}
+    {{ else }}
+      {{ $currentNode.Scratch.Set "nextPage" .menu }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $currentNode.Scratch.Set "prevPageTmp" .menu }}
+{{ $currentNode.Scratch.Set "pages" .menu.Pages }}
+{{ if .menu.IsHome }}
+  {{ $currentNode.Scratch.Set "pages" .menu.Sections }}
+{{ else if .menu.Sections }}
+  {{ $currentNode.Scratch.Set "pages" (.menu.Pages | union .menu.Sections) }}
+{{ end }}
+{{ $pages := ($currentNode.Scratch.Get "pages") }}
+{{ range $pages.ByWeight }}
+  {{ template "pagination" dict "menu" . "currentnode" $currentNode "menu_exclusion" $menu_exclusion }}
+{{ end }}
+{{ end }}
+
+
+{{ $currentNode := . }}
+{{ $currentSection := .FirstSection }}
+<nav class="pagination">
+    {{ if .IsHome }}
+        <div class="grow"></div>
+            <p class="caption"> {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify }}{{ end }} </p>
+        <div class="grow"></div>
+    {{ else }}
+        {{ template "pagination" dict "menu" .Site.Home "currentnode" $currentNode "menu_exclusion" .Site.Params.menu_exclusion }}
+        {{ with ($.Scratch.Get "prevPage") }}
+            {{ if .IsDescendant $currentSection }}
+            <a href="{{ .Permalink }}" title="{{ .Title }}" class="pagination__left">
+                <div class="pagination__icon">
+                    {{ partial "svgs/right.svg" (dict "width" 15 "height" 15) }}
+                </div>
+                <div class="pagination__right-title">{{ .Title }}</div>
+            </a>
+            {{ else }}
+                <div class="pagination__space"> </div>
+            {{ end }}
+        {{ end }}
+        <div class="grow"></div>
+        <p class="caption"> {{ with $.Site.Copyright }}{{ replace . "{year}" now.Year | markdownify }}{{ end }} </p>
+        <div class="grow"></div>
+        {{ with ($.Scratch.Get "nextPage") }}
+            {{ if .IsDescendant $currentSection }}
+            <a href="{{ .Permalink }}" title="{{ .Title }}" class="pagination__left">
+                <div class="pagination__left-title">{{ .Title }}</div>
+                <div class="pagination__icon">
+                    {{ partial "svgs/left.svg" (dict "width" 15 "height" 15) }}
+                </div>
+            </a>
+            {{ else }}
+                <div class="pagination__space"> </div>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+</nav>

@@ -1,0 +1,82 @@
+.pagination {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+  @include flex-wrap(wrap);
+  height: 50px !important;
+
+  &__left,
+  &__right {
+    border-radius: 0.125rem;
+
+    @include truncate($grid-body-width);
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(center);
+    @include themify($themes) {
+      color: themed('pagination-color');
+    }
+    &-title {
+      @include truncate($grid-body-width);
+      padding-top: 2px;
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+      height: $grid-nav-height;
+      color: inherit;
+      background-color: transparent;
+      outline: none;
+      border: none;
+      cursor: pointer;
+
+      @include flex-shrink(0);
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(center);
+      @include themify($themes) {
+        color: themed('navbar-icon-color');
+        @include on-event {
+          color: themed('body-color');
+          background-color: themed('dropdown-hover-background-color');
+        }
+
+        & > a {
+          height: 100%;
+          color: inherit;
+
+          @include flexbox();
+          @include align-items(center);
+          @include justify-content(center);
+        }
+      }
+    width:25%;
+    max-width: 240px;
+  }
+  &__space{
+    width:25%;
+    max-width: 240px;
+  }
+
+  &__left {
+    @include on-event {
+    }
+  }
+
+  &__right {
+    @include on-event {
+    }
+  }
+
+
+  &__icon {
+    border-radius: 100%;
+    margin: 5px;
+    color: inherit;
+
+    svg {
+      display: block;
+      margin: auto;
+    }
+  }
+}

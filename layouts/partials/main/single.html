@@ -9,7 +9,6 @@
 
     <article id="list-main" class="m" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
       {{ partial "main/sections/list-main.html" . }}
-      {{ partial "main/component/pagination-single.html" . }}
       {{ partial "comments/comments.html" . }}
     </article>
 

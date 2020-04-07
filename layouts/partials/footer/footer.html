@@ -1,0 +1,7 @@
+{{ if $.Param "enableFooter" }}
+<div class="bot">
+  <footer class="footer">
+      {{ partial "footer/paginator.html" . }}
+  </footer>
+</div>
+{{ end }}
